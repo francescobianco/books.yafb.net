@@ -13,7 +13,8 @@
         }
 
         function redirect3(inputId, outputId) {
-            const input = document.getElementById(inputId).value;
+            //const input = document.getElementById(inputId).value;
+            const input = "aaaa";
             document.getElementById(outputId).innerHTML = 'AAAA: ' + input;
 
             return false;
@@ -22,8 +23,8 @@
 </head>
 <body>
 <label for="passphrase">Passphrase</label>
-<input type="password" name="passphrase" id="passphrase" />
-<button type="button" onclick="return redirect3('passphrase', 'output');">Submit 11</button>
+<input type="text" name="passphrase" id="passphrase" />
+<button type="button" onclick="return redirect3('passphrase', 'output');">Submit 13</button>
 <div id="output"></div>
 </body>
 </html>
