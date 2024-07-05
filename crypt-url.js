@@ -59,3 +59,9 @@ if (typeof window === 'undefined') {
         window.redirect = redirect;
     })();
 }
+
+function redirect2(inputId, outputId) {
+    document.getElementById(outputId).innerHTML = 'AAAA';
+
+    return false;
+}
