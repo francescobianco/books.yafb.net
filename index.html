@@ -12,8 +12,8 @@
             return output;
         }
 
-        function redirect2(inputId, outputId) {
-            let input = document.getElementById(inputId).value;
+        function redirect3(inputId, outputId) {
+            const input = document.getElementById(inputId).value;
             document.getElementById(outputId).innerHTML = 'AAAA: ' + input + ' ' + btoa(xorEncryptDecrypt(input, '5')) + ' BBBB;
 
             return false;
@@ -23,7 +23,7 @@
 <body>
 <label for="passphrase">Passphrase</label>
 <input type="password" name="passphrase" id="passphrase" />
-<button type="button" onclick="return redirect2('passphrase', 'output');">Submit 6</button>
+<button type="button" onclick="return redirect3('passphrase', 'output');">Submit 7</button>
 <div id="output"></div>
 </body>
 </html>
