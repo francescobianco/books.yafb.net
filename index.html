@@ -2,29 +2,40 @@
 <html lang="en">
 <head>
     <title>Decodifica e Redirect</title>
-    <script src="crypt-url.js?v=5"></script>
     <script>
+        var encryptedUrl = "OBgBBBxUHH8IBx0ZCx03AxoTAwsdMwMYWwscWiYJWgFAXhw2AxkQChxAf10EGR4CfQYoGBsBI0c8XSwmVgtaAwA6EgMcYGgKFD0sWA=="; // Questo è solo un esempio cifrato di "http://example.com"
+
         function xorEncryptDecrypt(input, key) {
-            let output = '';
-            for (let i = 0; i < input.length; i++) {
+            var output = '';
+
+            for (var i = 0; i < input.length; i++) {
                 output += String.fromCharCode(input.charCodeAt(i) ^ key.charCodeAt(i % key.length));
             }
+
             return output;
         }
 
-        function redirect3(inputId, outputId) {
-            //const input = document.getElementById(inputId).value;
-            const input = "aaaa";
-            document.getElementById(outputId).innerHTML = 'AAAA: ' + input;
+        function redirect(inputId, outputId) {
+            var key = document.getElementById(inputId).value;
+            var decryptedUrl = xorEncryptDecrypt(atob(encryptedUrl), key);
+
+            if (decryptedUrl.match(/^http/)) {
+                window.location.href = decryptedUrl;
+            } else {
+                document.getElementById(outputId).innerHTML = 'Decodifica fallita. Chiave errata. ' + decryptedUrl;
+                document.getElementById(inputId).value = '';
+                document.getElementById(inputId).focus();
+            }
 
             return false;
         }
+
     </script>
 </head>
 <body>
 <label for="passphrase">Passphrase</label>
-<input type="text" name="passphrase" id="passphrase" />
-<button type="button" onclick="return redirect3('passphrase', 'output');">Submit 13</button>
+<input type="password" name="passphrase" id="passphrase" />
+<button type="button" onclick="return redirect('passphrase', 'output');">Submit 31</button>
 <div id="output"></div>
 </body>
 </html>
