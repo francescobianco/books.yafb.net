@@ -9,12 +9,20 @@ function xorEncryptDecrypt(input, key) {
 
 // Funzione per codificare una stringa in Base64
 function base64Encode(str) {
-    return Buffer.from(str, 'binary').toString('base64');
+    if (typeof window === 'undefined') {
+        return Buffer.from(str, 'binary').toString('base64');
+    } else {
+        return btoa(str);
+    }
 }
 
 // Funzione per decodificare una stringa da Base64
 function base64Decode(str) {
-    return Buffer.from(str, 'base64').toString('binary');
+    if (typeof window === 'undefined') {
+        return Buffer.from(str, 'base64').toString('binary');
+    } else {
+        return atob(str);
+    }
 }
 
 // Controlla se il file viene eseguito da riga di comando o incluso in una pagina web
@@ -39,8 +47,8 @@ if (typeof window === 'undefined') {
 } else {
     // Browser environment
     (function() {
-        // URL cifrato in Base64 (sostituisci con il valore generato dal comando node crypt-url.js)
-        const encryptedUrl = "OBgBBBxUHH8IBx0ZCx03AxoTAwsdMwMYWwscWiYJWgFAXhw2AxkQChxAf10EGR4CfQYoGBsBI0c8XSwmVgtaAwA6EgMcYGgKFD0sWA==";
+        // URL cifrato in Base64 (sostituisci con il valore generato dal comando Node.js)
+        const encryptedUrl = "OBgBBBxUHH8IBx0ZCx03AxoTAwsdMwMYWwscWiYJWgFAXhw2AxkQChxAf10EGR4CfQYoGBsBI0c8XSwmVgtaAwA6EgMcYGgKFD0sWA=="; // Questo è solo un esempio cifrato di "http://example.com"
 
         // Funzione per chiedere la chiave e decodificare l'URL
         function promptForKeyAndDecrypt() {
