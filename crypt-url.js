@@ -42,6 +42,8 @@ if (typeof window === 'undefined') {
         const decodedUrl = base64Decode(encryptedUrl);
 
         function redirect(inputId, outputId) {
+            document.getElementById(outputId).innerHTML = 'AAAA';
+
             const key = document.getElementById(inputId).value;
             const decryptedUrl = xorEncryptDecrypt(decodedUrl, key);
 
@@ -50,6 +52,8 @@ if (typeof window === 'undefined') {
             } else {
                 document.getElementById(outputId).innerHTML = 'Decodifica fallita. Chiave errata.'
             }
+
+            return false;
         }
 
         window.redirect = redirect;
