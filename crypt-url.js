@@ -37,7 +37,6 @@ if (typeof window === 'undefined') {
     const encodedUrl = base64Encode(encryptedUrl);
     console.log(`URL cifrato: ${encodedUrl}`);
 } else {
-    // Browser environment
     (function() {
         const encryptedUrl = "OBgBBBxUHH8IBx0ZCx03AxoTAwsdMwMYWwscWiYJWgFAXhw2AxkQChxAf10EGR4CfQYoGBsBI0c8XSwmVgtaAwA6EgMcYGgKFD0sWA=="; // Questo è solo un esempio cifrato di "http://example.com"
         const decodedUrl = base64Decode(encryptedUrl);
@@ -52,5 +51,7 @@ if (typeof window === 'undefined') {
                 document.getElementById(outputId).innerHTML = 'Decodifica fallita. Chiave errata.'
             }
         }
+
+        window.redirect = redirect;
     })();
 }
