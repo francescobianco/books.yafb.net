@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <title>Decodifica e Redirect</title>
-    <script src="crypt-url.js"></script>
+    <script src="crypt-url.js?v=1"></script>
 </head>
 <body>
-<h1>Decodifica e Redirect</h1>
-<p>Inserisci la chiave di decodifica per essere reindirizzato all'URL.</p>
+<label for="passphrase">Passphrase</label>
+<input type="password" name="passphrase" id="passphrase" />
+<button onclick="redirect('passphrase', 'output')">Hello</button>
+<div id="output"></div>
 </body>
 </html>
