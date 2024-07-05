@@ -14,7 +14,7 @@ Welcome to **books.yafb.net**! This is a simple tool designed to shorten long UR
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/books.yafb.net.git
+    git clone https://github.com/francescobianco/books.yafb.net.git
     cd books.yafb.net
     ```
 
@@ -35,7 +35,7 @@ Welcome to **books.yafb.net**! This is a simple tool designed to shorten long UR
 1. Include the `crypt-url.js` script in your HTML file:
     ```html
     <!DOCTYPE html>
-    <html>
+    <html lang="en">
     <head>
         <title>Decoding and Redirect</title>
         <script src="crypt-url.js"></script>
