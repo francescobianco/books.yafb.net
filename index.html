@@ -4,8 +4,17 @@
     <title>Decodifica e Redirect</title>
     <script src="crypt-url.js?v=5"></script>
     <script>
+        function xorEncryptDecrypt(input, key) {
+            let output = '';
+            for (let i = 0; i < input.length; i++) {
+                output += String.fromCharCode(input.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+            }
+            return output;
+        }
+
         function redirect2(inputId, outputId) {
-            document.getElementById(outputId).innerHTML = 'AAAA';
+            let input = document.getElementById(inputId).value;
+            document.getElementById(outputId).innerHTML = 'AAAA: ' + input + ' ' + btoa(xorEncryptDecrypt(input, '5')) + ' BBBB;
 
             return false;
         }
@@ -14,7 +23,7 @@
 <body>
 <label for="passphrase">Passphrase</label>
 <input type="password" name="passphrase" id="passphrase" />
-<button type="button" onclick="return redirect2('passphrase', 'output');">Submit 5</button>
+<button type="button" onclick="return redirect2('passphrase', 'output');">Submit 6</button>
 <div id="output"></div>
 </body>
 </html>
